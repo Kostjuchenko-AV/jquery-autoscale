@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>jq-autoscale demo</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jquery.autoscale.js"></script>
+		<style type="text/css">
+			body { font-size: 16px; }
+			.autoscale { display: inline-block; background-color: lemonchiffon; width: 6em; padding: .5em; text-align: center; font-size:100%; }
+		</style>
+	</head>
+	<body>
+		<h1>jq-autoscale demo</h1>
+		Bound to self: <input type="text" id="self" class="autoscale" value="abc" /><br/>
+		Bound to other: <input type="text" id="binder" value="abc" /><div class="autoscale" id="target">hello</div>
+		
+		<script type="text/javascript">
+			$(document).ready(function (){
+				$('#self').autoscale({
+					event: 'keyup',
+				});
+				$('#target').autoscale({
+					target: $('#binder'),
+					event: 'keyup',
+				});
+			});
+		</script>
+	</body>
+
+</html>
